@@ -394,6 +394,7 @@ module Resque
     end
 
     def spawn_worker!(queues)
+      p "spawn worker"
       worker = create_worker(queues)
       pid = fork do
         Process.setpgrp unless Resque::Pool.single_process_group
